@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.UsersMapper">
+
+	<insert id="regist">
+		insert into users (
+		name,
+		birth_day,
+		gender,
+		zipcode,
+		address,
+		telnumber,
+		email,
+		password,
+		employment_status,
+		hire_day,
+		role,
+		emg_name,
+		relation,
+		emg_zipcode,
+		emg_address,
+		emg_telnumber
+		) values (
+		#{name},
+		#{birth_day},
+		#{gender},
+		#{zipcode},
+		#{address},
+		#{telnumber},
+		#{email},
+		#{password},
+		#{employment_status},
+		#{hire_day},
+		#{role},
+		#{emg_name},
+		#{relation},
+		#{emg_zipcode},
+		#{emg_address},
+		#{emg_telnumber}
+		)
+	</insert>
+
+	<select id="findUserByEmail"
+		resultType="com.example.demo.entity.User">
+		select
+		*
+		from
+		users
+		where
+		email = #{email}
+	</select>
+
+	<select id="getUserById"
+		resultType="com.example.demo.entity.User">
+		select
+		*
+		from
+		users
+		where
+		id = #{id}
+	</select>
+
+	<update id="accountEdit">
+		update users set (
+		email,
+		password
+		) = (
+		#{email},
+		#{password}
+		)
+		where
+		email = #{email}
+	</update>
+
+	<select id="getEmployeeList"
+		resultType="com.example.demo.entity.User">
+		select
+		*
+		from
+		users
+		order by
+		id
+	</select>
+
+	<select id="getEmployeeByEmail"
+		resultType="com.example.demo.entity.Employee">
+		select
+		*
+		from
+		users
+		where
+		email = #{email}
+	</select>
+
+	<update id="employeeEdit">
+		update users set (
+		name,
+		gender,
+		zipcode,
+		address,
+		telnumber,
+		employment_status,
+		role,
+		emg_name,
+		relation,
+		emg_zipcode,
+		emg_address,
+		emg_telnumber
+		) = (
+		#{name},
+		#{gender},
+		#{zipcode},
+		#{address},
+		#{telnumber},
+		#{employment_status},
+		#{role},
+		#{emg_name},
+		#{relation},
+		#{emg_zipcode},
+		#{emg_address},
+		#{emg_telnumber}
+		)
+		where
+		id = #{id}
+	</update>
+
+</mapper>

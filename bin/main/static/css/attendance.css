@@ -1,0 +1,26 @@
+@charset "utf-8";
+
+#attendance-table {
+	border: solid 1px;
+}
+
+#attendance-table tr:nth-child(even) {
+	background: #eee;
+}
+
+.saturday {
+	color: blue;
+}
+
+.sunday {
+	color: red;
+}
+
+input:read-only, select.readonly {
+	background-color: #ddd;
+	pointer-events: none;
+}
+
+.hidden-approval {
+	display: none;
+}

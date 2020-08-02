@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.LaborMapper">
+
+	<insert id="upsert">
+		insert into labor_managements (
+		user_id,
+		employment_status,
+		basic_salary,
+		hourly_wage,
+		work_start,
+		work_end,
+		scheduled_holiday,
+		fixed_overtime,
+		pass_price
+		)
+		values (
+		#{user_id},
+		#{employment_status},
+		#{basic_salary},
+		#{hourly_wage},
+		#{work_start},
+		#{work_end},
+		#{scheduled_holiday},
+		#{fixed_overtime},
+		#{pass_price}
+		)
+		ON CONFLICT (user_id)
+		do update set
+		employment_status = #{employment_status},
+		basic_salary = #{basic_salary},
+		hourly_wage = #{hourly_wage},
+		work_start = #{work_start},
+		work_end = #{work_end},
+		scheduled_holiday = #{scheduled_holiday},
+		fixed_overtime = #{fixed_overtime},
+		pass_price = #{pass_price}
+	</insert>
+
+	<select id="getLabor"
+		resultType="com.example.demo.entity.Labor">
+		select
+		*
+		from
+		labor_managements
+		where
+		user_id = #{id}
+	</select>
+
+</mapper>

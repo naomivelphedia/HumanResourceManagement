@@ -1,0 +1,43 @@
+@charset "utf-8";
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+#header {
+	height: 40px;
+	width: 100%;
+	background-color: #99FFFF;
+	display: table;
+}
+
+.title {
+	width: 10%;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.menu {
+	display: inline;
+	float: right;
+	margin-right: 5%;
+}
+
+.menu > label {
+  cursor: pointer;
+  font-size: 30px;
+  position: relative;
+}
+
+.menu > ul {
+	background-color: whitesmoke;
+  display: none;
+  position: absolute;
+  top: 30px;
+  right: 10px;
+}
+
+.menu li {
+	list-style: none;
+}

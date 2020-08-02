@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <context id="default" defaultModelType="hierarchical">
+
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection
+            driverClass="org.postgresql.Driver"
+            connectionURL="jdbc:postgresql://localhost:5432/hrm"
+            userId="postgres"
+            password="postgres"/>
+
+        <javaModelGenerator
+            targetProject="HumanResourceManagement/src/main/java/"
+            targetPackage="com.example.demo.entity" />
+
+        <!-- <sqlMapGenerator
+            targetProject="HumanResourceManagement/src/main/java/"
+            targetPackage="com.example.demo.mapper"
+        /> -->
+
+        <javaClientGenerator
+            targetProject="HumanResourceManagement/src/main/java/"
+            targetPackage="com.example.demo.mapper"
+            type="ANNOTATEDMAPPER"/>
+
+        <table tableName="images"/>
+
+    </context>
+</generatorConfiguration>
